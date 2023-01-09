@@ -1,0 +1,26 @@
+-------------------F8 Course: Làm việc với Terminal & Ubuntu-------------
+
+6. Update, Upgrade Packages
+- apt và apt-get update là giống nhau trong bài này
+- apt update giúp kết nối ra internet và kéo những thông tin phiên bản packages mới nhất về máy, chứ ko thực hiện nâng cấp
+- apt upgrade sẽ lấy thông tin vừa có ở trên và thực hiện tải xuống rồi nâng cấp ở máy
+
+11. mkdir, touch, vi
+- mkdir: tạo ra thư mục
+- mkdir + tên-thư-mục/tên-thư-mục-con1/tên-thư-mục-con2 -p: thêm -p để tạo ra thư mục con2 nếu thư mục tên-thư-mục và thư mục tên-thư-mục-con1/ trống
+- touch: tạo ra 1 file ko nội dung
+- tạo 1 file trong 1 thư mục: cần chia 2 bước: tạo thư mục -> tạo file
+
+13. cat, echo, tail, grep
+- cat: xem nội dung của file hoặc ghép nội dung của nhiều file vào 1 file duy nhất
+- cat tenfile1 tenfile2 > concat.html: ghi nội dung của file1 và file2 vào file concat.html
+
+- echo: in ra, vì echo có đầu ra là stout nên có thể dùng echo để ghi đè nội dung vào 1 file
+- echo noiDung > tenfile
+- nếu muốn append thì echo noiDung >> tenfile
+
+- tail: xem những dòng cuối của 1 file - mặc định 10 dòng
+- tail -n x tenfile: hiện thị x dòng cuối
+- tail -f tenfile: follow theo sự thay đổi của file
+
+- grep: lọc, tìm kiếm 1 từ trong stout, kết hợp vs những lệnh có stout: cat, echo, ..., có thể tìm trong nhiều file
