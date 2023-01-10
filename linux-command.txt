@@ -24,3 +24,12 @@
 - tail -f tenfile: follow theo sự thay đổi của file
 
 - grep: lọc, tìm kiếm 1 từ trong stout, kết hợp vs những lệnh có stout: cat, echo, ..., có thể tìm trong nhiều file
+
+15. cp, mv, rm, rmdir
+
+- cp: copy file, copy thư mục
+- cp -r: copy cả thư mục
+- mv: đổi tên, di chuyển file, thư mục
+- rm: xóa file, ko xóa đc thư mục
+- rmdir: chỉ xóa đc thư mục rỗng
+- rm -r: xóa đc thư mục bên trong có file
