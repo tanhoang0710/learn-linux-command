@@ -33,3 +33,36 @@
 - rm: xóa file, ko xóa đc thư mục
 - rmdir: chỉ xóa đc thư mục rỗng
 - rm -r: xóa đc thư mục bên trong có file
+
+17. sudo, chmod, chown
+- sudo: chạy với quyền root
+- chmod: phân quyền cho thư mục, file
+- Trong linux/ubuntu có 3 vai trò:
+  + User: chủ sở hữu, 1 tk cụ thể, vd tanhun
+  + Group: nhóm gồm nhiều chủ sở hữu
+  + Other: khác 2 loại trên
+  + ls -l: cột 3 là chủ sở hữu(User), cột 4 là nhóm sở hữu(Group)
+- Có 3 quyền hạn:
+  + Read
+  + Write
+  + Execute
+  + Cột 1 trong ls -l: string gồm 10 kí tự: kí tự 1 thể hiện là folder hay file: d là folder, - là file, l là shortcut
+  + 3 kí tự tiếp thể hiện quyền của User
+  + 3 kí tự tiếp thể hiện quyền của Group
+  + 3 kí tự cuối thể hiện quyền của Other
+ - Cú pháp: sudo chmod ?options permissions filename
+  + VD phân quyền bằng chữ cho file có tên myfile:
+    - chmod u=rwx,g=rx,o=r myfile có nghĩa là User có quyền đọc, ghi, thực thi, Group có quyền đọc, thực thi, Other có quyền đọc
+ - = là gán quyền, + là thêm quyền, - là bớt quyền
+  + Phân quyền bằng bát phân
+    - 4: read
+    - 2: write
+    - 1: execute
+    - 0: no permisstion
+    - VD: chmod 777 myfile có nghĩa là User, Group, Other đều có full quyền
+- chown: chuyển đổi chủ sở hữu
+  + cú pháp: sudo chown tenChuSoHuu tenfile
+  + VD: sudo chown root run.sh
+  + muốn set cả group: sudo chown tenChuSoHuu:tenGroup tenFile
+  + VD: sudo chown root:root run.sh
+ 
