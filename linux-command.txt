@@ -65,4 +65,9 @@
   + VD: sudo chown root run.sh
   + muốn set cả group: sudo chown tenChuSoHuu:tenGroup tenFile
   + VD: sudo chown root:root run.sh
- 
+  
+19. man, wget, apt
+- man: tra cứu các lệnh khác trong linux
+- VD: man ls, man tail
+- wget: tải xuống file khi có đường dẫn tải
+- apt(apt-get): quản lý gói
