@@ -71,3 +71,10 @@
 - VD: man ls, man tail
 - wget: tải xuống file khi có đường dẫn tải
 - apt(apt-get): quản lý gói
+
+21. kill, ping, uname, passwd
+- kill: kết thúc 1 tiến trình
+- VD: kill + pid
+- ping: tốc độ kết nối đến máy chủ
+- uname: xem kernel của hđh
+- passwd: đổi mk
