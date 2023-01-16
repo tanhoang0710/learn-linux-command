@@ -78,3 +78,8 @@
 - ping: tốc độ kết nối đến máy chủ
 - uname: xem kernel của hđh
 - passwd: đổi mk
+
+23. top, df, free
+- top: giống task manager trong Windows
+- df: kiểm tra dung lượng ổ cứng
+- free: kiểm tra RAM và SWAP
