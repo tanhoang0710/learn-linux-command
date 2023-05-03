@@ -1,0 +1,15 @@
+3. Exploring the System
+- file filename: Determining a File’s Type with file
+- less filename: Viewing File Contents with less
+
+4. Manipulating files and Directories
+- mkdir: Create Directories
+- cp: Copies Files and Directories
+  cp item1 item2: copy single file or directory item1 to file or directory item2
+  cp item1 item2 ... item3: copy multiple items (either files or directories) into a directory.
+- mv: Move and Rename Files
+  mv item1 item2
+- rm: Remove Files and Directories(When ever you use wildcards with rm, test the wildcard first with ls. then replace the ls with rm)
+  rm item ...
+
+
