@@ -12,4 +12,6 @@
 - rm: Remove Files and Directories(When ever you use wildcards with rm, test the wildcard first with ls. then replace the ls with rm)
   rm item ...
 
-
+6. Redirection
+- cat: Concatenate files
+- pipelines
