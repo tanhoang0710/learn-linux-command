@@ -83,3 +83,70 @@
 - top: giống task manager trong Windows
 - df: kiểm tra dung lượng ổ cứng
 - free: kiểm tra RAM và SWAP
+
+
+
+------------------------------CLOUDCERT---------------------------------------
+Buổi 2: Các câu lệnh cơ bản
+Tạo user?
+Và đăng nhập user?
+
+TH1: tạo user nhưng chưa đăng nhập
+TH2: tạo user và đăng nhập
+
+Phím tab:
+1 - Giúp gõ nhanh hơn, check xem có nhập nhầm hay không
+
+Vấn đề làm việc:
+- Các câu lệnh cơ bản: tạo, xóa, liệt kê, chỉnh sửa: vi, nano
+- Thư mục - tệp
+- Số inode
+- Dữ liệu chia ra làm 2 kiểu: thông tin của dữ liệu (metadata -> inode) + dữ liệu thô.
+- Khi tạo ra file ảnh, file film:  số inode thông tin: 99: kiểu dl, tên dl, ngày giờ tạo, dung lượng... + dữ liệu thô: 1002: 
+- Xóa dữ liệu: chỉ xóa số inode, ko xóa dữ liệu thô, nên vẫn recovery dc
+
+
+- history: các lệnh đã dùng
+- !27: chạy lệnh số 27
+
+- Trinh soan thao vi
+	+ :set nu: them so dong
+	+ :n: nhay den dong N
+	+ hjkl: di chuyen con tro sang trai, phai, len xuong
+
+- cat: mở file
+- man + ten lenh | ten lenh --help | info ls: xem cách dùng lệnh
+- rm + tenfile: xóa file
+- bất kỳ lên quan đến thư mục cần có option r
+- rm - rf tên thư mục
+- tail -n n tên file :hiện thị n dòng cuối của file 
+- haed -n n tên file :hiện thị n dòng đầu của file 
+- hostnamectl set-hostname tên-mới: đổi tên mt ko cần khởi động lại 
+- nmcli d: hiển thị các card mạng
+
+
+-- Cách đổi địa chỉ ip:
+3 cách:
+2 cách dễ(giao diện):
+
+1 cách khó(dùng lệnh - thực tế dùng nhiều):
+- ifconfig tên_card_mạng địa chỉ ip netmark địa chỉ: cách dùng sổi, chỉ thay đổi địa chỉ ip lúc đó, restart máy hoặc restart network sẽ quay về như cũ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
