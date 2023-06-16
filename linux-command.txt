@@ -133,14 +133,32 @@ Vấn đề làm việc:
 - ifconfig tên_card_mạng địa chỉ ip netmark địa chỉ: cách dùng sổi, chỉ thay đổi địa chỉ ip lúc đó, restart máy hoặc restart network sẽ quay về như cũ
 
 
+SFTP: SSH file transfer protocol
 
 
+-----------------------------------------------------
+
+- Trong hệ điều hành Linux phân chia thành 3 TH:
+- TH1: Nén (dữ liệu đc nén lại vs kich thước nhỏ hơn dữ liệu gốc)
+- TH2: Đóng gói(để phục vụ cho dữ liệu nhỏ ko bị phân mảnh, chúng ta gom lại thành 1 khối)
+- TH3: Nén và đóng gói (Dữ liệu vừa đc nén vừa đc đóng gói, vừa đảm bảo sự đồng bộ 1 khối cũng như thu gọn lại kthuoc dữ liệu)
+
+VD:
+- Nén file: zip x.zip tenfile1 tenfile2....
+- Nén thư mục: zip -r x.zip tenthumuc
+
+- Giải nén: unzip -d thumucmoi x.zip (-d để tạo folder mới khác tên)
 
 
+- Đóng gói:
+VD:
+- Đóng gói: tar -cvf donggoi.tar file1.txt file2.txt ...
+- Extract: tar -xcf donggoi.tar
 
 
-
-
+- Vừa nén vừa đóng gói:
+VD: tar -czvf dg-n.tar.gz file1.txt file2.txt (z: zip, j: bzip2, f: ko cần hỏi, c: create, x: extract, v: verbose(hiện thị ra ngoài màn hình %))
+    giải nén: tar -xzvf dg-n.tar.gz
 
 
 

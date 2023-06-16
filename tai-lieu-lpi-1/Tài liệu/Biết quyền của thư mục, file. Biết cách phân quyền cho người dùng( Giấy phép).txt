@@ -1,0 +1,110 @@
+Phân quyền cho người dùng:
+
+cat /etc/group: thông tin group, user nào nằm trong group
+cat /etc/shadow: thông tin passwd group
+cat /etc/passwd: thông tin của user
+groupadd IT: tạo group IT
+gpasswd IT: tạo mật khẩu cho group IT
+
+-- Giấy phép trong môi trường mã nguồn mở:
+R: đọc - 4
+W: Viết -2
+X: Excute: thực thi -1
+
+-- Ý nghĩa của R, W, X
+R=4: Người dùng chỉ được liệt kê xem thư mục có gì ( không xem được có bn file, nội dung file)
+
+R+X=5: Cho biết trong thư mục có tổng bao nhiêu file, có thể dùng cat xem nội dung. Nhưng không sửa được nội dung
+
+W=2: Không làm được gì
+
+W+X=3: tạo được đối tượng trong Folder, không sửa được file, chỉ có thể ghi đè lên ( mất file ghi cũ), không liệt kê được, được quyền Xóa cả file và Thư mục
+
+R+W+X: full tác vụ
+
+X=1: cd được vào trong thư mục, chạy được các file thực thi
+
+-- Lệnh cấp quyền
+chmod ??? /thư mục
+
+VD: chmod 777 /IT -> cho user sở hữu, group sở hữu, user other khác full quyền
+-chmod 775 /IT --> cho user other quyền đọc xem nội dung file, xem có bao nhiêu file
+-chmod 773 /IT --> cho user other quyền tạo folder, ghi đè được nội dung, xóa được file-folder. Nhưng không liệt kê được
+-chmod 771 /IT: cho user other quyền cd vào file, chạy các file thực thi
+
+chrgp nhómsở-hữu /thư mục
+
+VD: chgrp ICT /IT: đổi group sở hữu từ 1 group khác thành group ICT --> Các user thuộc nhóm ICT có QUYỀN
+VD: group sở hữu là root --> chuyển thành group ICT. 
+Trong group ICT: có các user u1,u2,u3 thì các user này sẽ có quyền của group sở hữu
+
+--Khi nói đến User ta nói đến quyền của nó (quyền được cấp)
+
+--Quyền truy cập đặc biệt:
+1.Sticky bit: Xét giấy phép cho từng đối tượng tác giả tạo ra của mình
+**Note: Chỉ áp dụng được trên thư mục
+
+VD: u1 và u3 cùng thuộc group IT
+u1 tạo 1 file như file1.txt , vì u3 có quyền ngang u1 ( cùng 1 group) --> u3 sẽ có quyền sửa, xóa file1.txt ??? VCHG, thế thì hỏng hết bánh kẹo
+chmod 1770 /IT1
+
+==> Vì vậy, người ta sử dụng sticky bit. Khi đó các User thuộc cùng group sở hữu, sẽ không có quyền sửa xóa file của mình
+
+2. SUID- 4 ở đầu ( Vd ở dưới 4755)
+Không áp dụng cho thư mục, chỉ áp dụng cho file thực thi
+File thực thi là file tất cả các cột đều có quyền thực thi:-x
+VD: cd, ls,....
+
+- Lệnh chmod 4755 /usr/bin/ls: Khi đó lệnh ls trên user thường, có quyền như ls trên user root
+
+-"vi" cũng là file thực thi nhưng là công cụ hệ thống nên không để dùng SUID được, "vim" thì được
+
+3. SGID ( Set Group ID)
+- Tương tự SUID, NHƯNG nó đánh vào quyền của group sở hữu
+**Note: để sử dụng câu lệnh này, thì thư mục muốn thực hiện phải có group sở hữu IT
+
+-lệnh: chmod 2770 /IT
+--> thì sau câu lệnh này, user trong group IT tạo file, group sở hữu sẽ là group IT
+
+----------------------------------------------------
+Giấy phép bài 2
+
+Các kiểu ký hiệu file:
+-: file thông thường
+l: file soft link ( shortcut)
+b: file hệ thống
+c: file ký tự
+d: file thư mục
+
+Hard link: backup
+
+VD: tạo thư mục mkdir /anhvu
+touch goc.txt
+ln goc.txt hard.txt --> copy file goc.txt vào file hard.txt
+---Dùng ls -i ta sẽ thấy 2 file này đều trỏ về 1 inode, như vậy khi cấu hình lệnh máy tính sẽ mặc định coi 2 file này là 1 và đẩy ra cả 2 file.
+--> file goc.txt thêm gì thì file hard.txt có cái đó
+--> Khi xóa 1 trong 2 thì file kia vẫn còn 
+
+Sord link: như 1 shortcut trong window
+touch goc.txt
+ln -s goc.txt soft.txt --> file soft.txt sẽ được coi là shortcut của goc.txt
+.Khi sửa 1 trong 2 file, chúng sẽ ánh xạ vào nhau. Vì vậy 2 file sẽ đều có nội dung giống nhau 
+.Khi cat ra thì 2 file sẽ chỉ về 2 số inode khác nhau. Vì vậy .Khi xóa file goc.txt thì file soft vẫn còn nhưng không dùng được nữa.
+.Khi xóa file soft.txt thì file goc vẫn y nguyên
+
+--------------------------------------
+SUDO ( Super User Do)
+ Lệnh:
+vi /etc/sudoers
+:set nu
+:106
+# Allows people in group wheel to run all commands
+%u1     ALL=(root)      /usr/sbin/useradd, /usr/sbin/passwd
+Muốn user nào, có quyền gì, sửa vào đây với các mục tương ứng:
+1. user
+2. quyền ngang ai
+3. đường dẫn của các lệnh muốn thực thi
+
+
+
+

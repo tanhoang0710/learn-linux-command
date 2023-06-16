@@ -1,0 +1,109 @@
+--telnet:
+yum install telnet-server --y
+service telnet.socket start
+systemctl enable telnet.socket  
+service firewalld stop
+firewall-cmd --reload
+vi /etc/securetty 
+thêm pts/1 , pts/2 cuối
+systemctl restart telnet.socket
+
+--ssh:
+yum install openssh* -y
+systemctl restart sshd.service
+netstat -tupln | grep sshd
+vi /etc/ssh/sshd_config 
+PermitRootLogin yes //cho root login
+systemctl restart sshd.service
+systemctl enable sshd.service
+
+--Add ổ cứng --vmware -- phải reboot
+
+*Phân vùng:
+fdisk /dev/sdb --> tạo 2 ổ 10G
+mkfs.xfs /dev/sdb1 --> định dạng file system
+mkdir /data 
+mkdir /hoctap
+mount /dev/sdb1 /data
+mount /dev/sdb2 /hoctap
+gedit /etc/fstab
+
+--Đặt pass cho grub
+
+Khởi động bấm e
+thay rhgb quiet --> rd.break enforcing=0
+F10 --> boot
+mount -o remount,rw /sysroot
+chroot /sysroot
+passwd 
+exit
+mount -o remount,ro /sysroot
+exit
+
+--Tạo user
+useradd u1
+useradd u2
+passwd u1
+passwd u2
+groupadd IT
+groupadd Sale
+usermod -G IT u1
+usermod -G Sale u2
+mkdir /IT
+mkdir /Sale
+chgrp IT /IT
+chrgp Sale /Sale
+chmod 770 /IT --> cho user,group owner full quyền /IT
+chmod 1770 /IT --> sitcky bit
+
+--Tạo folder admin
+mkdir /admin
+chmod 750 -R /admin --> quyền của thư mục lẫn các file bên trong đồng bộ
+cd /admin
+touch file1.txt
+chmod 2755 /usr/bin/ls
+chmod 4755 /usr/bin/vim
+--
+vi /etc/sudoers
+set nu
+:107
+%IT ALL=(root) /usr/sbin/useradd
+%Sale ALL=(root) /usr/sbin/groupadd
+Thử:
+u1
+sudo useradd // thử 
+
+--LVM
+tạo ổ Sdc phải REBOOT đó
+fdisk /dev/sdc
+fdisk -l //check
+pvcreate /dev/sdc1 /dev/sdc2 --> khởi tạo các phân vùng LVM
+pvdisplay
+vgcreate NAMEVG /dev/sdc1 /dev/sdc2 //gộp thành 1 volume
+vgdisplay //để kiểm tra
+
+lvcreate -L 10G -n logicalv1 NAMEVG // sử dụng 10G của ổ VG
+lvcreate -L 10G -n logicalv2 // sử dụng 10G của ổ VG
+mkfs.xfs /dev/logicalv1/NAMEVG
+mkfs.xfs /dev/logicalv2/NAMEVG
+mkdir /LVM1
+mkdir /LVM2
+mount /dev/logicalv1/NAMEVG /LVM1
+mount /dev/logicalv2/NAMEVG /LVM1
+
+Lỗi thì reboot lại
+--Mở rộng LVM
+pvcreate /dev/sdd1
+vgextend NAMEVG /dev/sdd1
+lvextend /dev/NAMEVG/logicalv1 /dev/sdd1
+lvextend /dev/NAMEVG/logicalv2 /dev/sdd1
+
+xfs_growfs /LVM1
+xfs_growfs /LVM2
+
+
+
+
+
+
+

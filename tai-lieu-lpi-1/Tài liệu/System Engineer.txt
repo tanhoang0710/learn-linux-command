@@ -1,0 +1,53 @@
+Triển khai hệ thống mạng, cấu hình các thiết bị của các hãng Cisco, DELL, HPE, IBM....
+Quản trị, giám sát hệ thống mạng trên hệ điều hành Linux
+Nắm vững cách viết bash, shell scripts
+WHAT WE DO
+Thiết kế, vận hành hệ thống Global Customer (Development, Staging, Production Env):
+
+Cloud (AWS, Azure, GCC, …), Virtual machine (Vmware, Xen server …).
+Thiết kế hệ thống cho các dự án
+Lưu trữ, phục hồi dữ liệu, config web/app service.
+Quản lý, vận hành hệ thống server nội bộ công ty:
+
+Quản lý Email , AD Microsoft, Storage, …
+Nâng cấp, tối ưu hóa Network & Security (Routing, VPN Tunnel, Wireless, …. )
+Quản lý web/app Server (Internal & External) + Điều hành VM system (Vmware, Xen server, …)
+Có kinh nghiệm mảng database (MySQL, PostgreSQL...)
+WHO YOU ARE
+Kiến thức tốt về Linux OS (Centos, Ubuntu,…)
+Có ít nhất 1 năm tham gia vào việc triển khai, vận hành các ứng dụng web, mobile trên nền tảng Linux OS:
++ Web/app service configuration (Apache, Nginx, …. )
++ Monitor (Zabbix, Nagios ….) & Analyze logs (Access logs, Audit logs, …
+Khả năng teamwork, phân tích và giải quyết vấn đề tốt
+Có kiến thức về CI/CD là một lợi thế
+Có kiến thức về Docker, Cloud ( AWS, Azure, GCC …) và các Orchestration là một lợi thế
+*nắm vững các kiến thức cơ bản về Windows server (MCSA) và Linux (Redhat, Ubuntu)
+****
+NẮM BẮT CƠ HỘI TRỞ THÀNH KỸ SƯ TÍCH HỢP HỆ THỐNG CLOUD TẠI VNPT - IT VỚI OFFER 300 - 500TR/NĂM
+📌 Ưu tiên các ứng việc đã có kinh nghiệm làm việc với một trong số các lĩnh vực sau:
+- Đã tham gia triển khai các dự án tích hợp hệ thống, phát triển dịch vụ CNTT.
+- Có kinh nghiệm lập trình phát triển, tối ưu hóa hệ thống bằng các ngôn ngữ hệ thống như Shell, Python,...
+- Có kinh nghiệm xây dựng, quản trị hệ thống trên nền  tảng Cloud: OpenStack, CloudStack, …
+- Có kiến thức về ảo hóa: KVM, Xen, QEMU...
+- Hiểu biết chuyên sâu về mạng: VLAN, Trunking, Port Channel, QoS, VPN, Loadbalancing...
+- Có kiến thức về hệ thống lưu trữ: GlusterFS, CEPH, SAN
+
+
+WHO YOU ARE: Fresher System Engineer ( Sun *)
+
+Tốt nghiệp chuyên nghành CNTT hoặc điện tử viễn thông
+Có kiến thức về Linux OS (Centos, Ubuntu,…):
+Biết sử dụng các run levels trên Linux
+Biết cài đặt và chia các phân vùng ổ cứng
+Biết sử dụng các công cụ cài đặt/xóa các packages trên Linux
+Biết sử dụng các lệnh để tìm kiếm và xử lý file text
+Hiểu biết về quyền của thư mục và file, biết cách phân quyền cho người dùng
+Biết kiểm tra các tiến trình, kill tiến trình
+Biết mount và unmount các file system
+Biết viết shell script, hiểu về $PATH và thêm đường dẫn vào $PATH là lợi thế
+Có kiến thức về ảo hóa
+Có kiến thức về container là lợi thế
+
+
+
+1.0.0.0 2^24-2 host sử dụng được trừ 2 địa chỉ 1.0.0.0 và 1.255.255.255
