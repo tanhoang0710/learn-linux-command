@@ -161,10 +161,57 @@ VD: tar -czvf dg-n.tar.gz file1.txt file2.txt (z: zip, j: bzip2, f: ko cần h�
     giải nén: tar -xzvf dg-n.tar.gz
 
 
+-------------------------------------------------
+- Thực thi nhiều câu lệnh cùng lúc:
+ + &&: a && b thìa phải thực hiện đúng thì b mới thực hiện
+ + ; : a ; b thì ko quan tâm a b vẫn đc thực hiện
+
+- apropos + "mô tả chức năng câu lệnh": liệt kê các câu lệnh theo chức năng đã mô tả
+
+---------------------------------------------------
+USER VÀ GROUP TRONG LINUX
+
+* USER:
+
+- Tạo User: => nhớ đặt password sau khi add
+useradd [option] <username>
+	-c "Thông tin người dùng"
+	-d "Thư mục cá nhân"
+	-g "group của user"
+	-m "Tạo thư mục cá nhân nếu chưa tồn tại"
+VD: useradd -c "Nguyen Van A - Server Admin" -g serveradmin vana
+
+- Thay đổi thông tin cá nhân:
+usermod [option] <username>
+Option tương tự useradd
+VD: usermod -g kinhdoanh vana => chuyển từ group serveradmin sang kinhdoanh
 
 
+- Đặt password cho user khi tạo xong:
+passwd <username>
+VD: passwd vana
 
 
+- Xóa người dùng:
+userdel <username>
+VD: userdel vana
 
+- Khóa và mở khóa người dùng
+passwd -l <username> / passwd -u <username>
+usermod -L <username> / usermod -U <username>
+Trong /etc/shadow có thể khóa tài khoản bằng các thay từ khóa x bằng từ khóa *
 
+* GROUP
+- Tạo nhóm
+groupadd <groupname>
 
+- Xóa nhóm 
+groupdel <groupname>
+
+- Chỉnh sửa
+groupmod [option] <groupname>
+	  -g gid mới
+	  -n tên mới
+	  
+- id username: xem thông tin user
+- groups username: xem group của user
