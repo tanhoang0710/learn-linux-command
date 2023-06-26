@@ -215,3 +215,48 @@ groupmod [option] <groupname>
 	  
 - id username: xem thông tin user
 - groups username: xem group của user
+
+
+
+
+
+
+------------------------------------------------
+GREP: tìm kiếm nội dung
+grep [option] parttern [file]
+-r: tìm lại trong thư mục con
+-v: tìm nghịch đảo
+-w: tìm nguyên từ
+-i: ko phân biệt hoa thường
+-n: kèm theo số dòng khi xuất
+
+VD: ls -l /etc/ | grep conf
+
+-------------------------------------------------
+PHÂN QUYỀN
+- Có 3 dạng đối tượng:
++ Owner(người sở hữu)
++ Group owner(nhóm sở hữu)
++ Other users (những người khác)
+- Quyền hạn:
++ Read - r - 4: Cho phép đọc nội dung
++ Write - w - 2: Dùng để tạo, sửa đổi, xóa
++ Execute - x - 1: Thực thi chương trình
+
+CHMOD: dùng để cấp quyền hạn
+- chmod <specification> <file>
+VD: chmod 644 test.txt
+
+CHOWN: thay đổi owner
+- chown <username> <file>
+VD: chown root test.txt
+
+CHGRP: thay đổi group sở hữu
+- chgrp <username> <file>
+VD: chgrp root test.txt
+
+có thể thay đổi cả owner và group sở hữu
+VD: chown <username>:<groupname> <file>
+
+
+
